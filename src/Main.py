@@ -3,7 +3,7 @@ import numpy as np
 
 # Includes
 
-from Cleansing import GenresCleansing
+from Cleansing import GenresCleansing, PlotsCleansing
 
 # count of rows and cols
 movies = pd.read_csv('../input/wiki_movie_plots_deduped.csv', ',')
@@ -18,3 +18,9 @@ print(movies[['Genre', 'Count']].groupby(['Genre']).count().shape[0])
 movies = GenresCleansing.genres_cleansing(movies)
 moviesGenre = movies[['GenreCorrected', 'Count']].groupby(['GenreCorrected']).count()
 moviesGenre.to_csv('GenreCorrected.csv', ',')
+
+# preparing file with plots after correction
+
+movies = PlotsCleansing.plot_cleansing(movies)
+moviesPlot = movies[['PlotCorrected']]
+moviesPlot.to_csv('PlotCorrected.csv')
