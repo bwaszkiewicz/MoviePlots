@@ -1139,11 +1139,8 @@ school|action|drama,1
 school|sport,1
 science_fiction,658
 science_fictionexploitation,1
-science_fictionfantasy,3
 science_fictionlgbtrelateddrama,1
 science_fictionmystery,2
-science_fictionromance,1
-science_fictionromance|thriller,1
 science_fictionthriller,5
 science_fictionwestern,1
 science_fiction|action,10
@@ -1165,13 +1162,13 @@ science_fiction|drama,12
 science_fiction|dramasupernatural,1
 science_fiction|drama|thriller,1
 science_fiction|family,1
-science_fiction|fantasy,2
+science_fiction|fantasy,5
 science_fiction|fantasy|action,1
 science_fiction|horror,16
 science_fiction|musical,2
 science_fiction|mystery,3
-science_fiction|romance,1
-science_fiction|romance|thriller,1
+science_fiction|romance,2
+science_fiction|romance|thriller,2
 science_fiction|teen,1
 science_fiction|thriller,9
 science_fiction|time travel,1

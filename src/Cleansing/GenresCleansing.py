@@ -451,8 +451,9 @@ def genres_cleansing(movies):
     movies['GenreCorrected'] = movies['GenreCorrected'].str.replace('science_fictionadventure', 'science_fiction|adventure')
     movies['GenreCorrected'] = movies['GenreCorrected'].str.replace('science_fictionanimation', 'science_fiction|animation')
     movies['GenreCorrected'] = movies['GenreCorrected'].str.replace('science_fictionchildren', 'science_fiction|children')
+    movies['GenreCorrected'] = movies['GenreCorrected'].str.replace('science_fictionfantasy', 'science_fiction|fantasy')
+    movies['GenreCorrected'] = movies['GenreCorrected'].str.replace('science_fictionromance', 'science_fiction|romance')
     movies['GenreCorrected'] = movies['GenreCorrected'].str.replace('', '')
-
     # movies['GenreCorrected'] = movies['GenreCorrected'].str.replace('.', '')
     # movies['GenreCorrected'] = movies['GenreCorrected'].str.replace('based on radio serial', '')
     # movies['GenreCorrected'] = movies['GenreCorrected'].str.replace(' on the early years of hitler', '')

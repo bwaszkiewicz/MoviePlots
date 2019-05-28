@@ -11,6 +11,7 @@ from sklearn.multiclass import OneVsRestClassifier
 # Includes
 
 from Cleansing import GenresCleansing, PlotsCleansing
+from Plots import PlotLearning
 
 # count of rows and cols
 movies = pd.read_csv('../input/wiki_movie_plots_deduped.csv', ',')
@@ -31,7 +32,6 @@ moviesGenre.to_csv('GenreCorrected.csv', ',')
 movies = PlotsCleansing.plot_cleansing(movies)
 moviesPlot = movies[['PlotCorrected']]
 moviesPlot.to_csv('PlotCorrected.csv')
-
 
 # -------------------------
 # classification algorithms
@@ -64,6 +64,9 @@ print(f'There are {len(y_test.columns)} columns in y_test')
 
 # Multinomial Naive Bayes Classification
 multinomialNB = OneVsRestClassifier(MultinomialNB(fit_prior=True, class_prior=None))
-multinomialNB.fit(x_train, y_train.action)
+multinomialNB.fit(x_train, y_train.crime)
 prediction = multinomialNB.predict(x_test)
-print(f'Test accuracy is {sklearn.metrics.accuracy_score(y_test.action, prediction)}')
+print(f'Test accuracy is {sklearn.metrics.accuracy_score(y_test.crime, prediction)}')
+
+# plt = PlotLearning.plot_learning_curve(estimator=multinomialNB, title="Test",X=x_test, y=y_test.crime, cv=5)
+# plt.show()
