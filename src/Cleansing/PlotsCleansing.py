@@ -22,5 +22,6 @@ def plot_cleansing(movies):
     movies['PlotCorrected'] = movies['PlotCorrected'].str.replace(':', '')
     movies['PlotCorrected'] = movies['PlotCorrected'].str.replace('(', '')
     movies['PlotCorrected'] = movies['PlotCorrected'].str.replace(')', '')
-    movies['PlotCorrected'] = movies['PlotCorrected'].str.replace(r'\[\d\]', '')
+    movies['PlotCorrected'] = movies['PlotCorrected'].str.replace(r'\\n', '')
+    movies['PlotCorrected'] = movies['PlotCorrected'].str.replace(r'\[\d+\]', '')
     return movies
