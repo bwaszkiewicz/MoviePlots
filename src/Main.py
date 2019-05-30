@@ -2,12 +2,15 @@ import pandas as pd
 import numpy as np
 import sklearn
 
+
 # Includes
 
 from Cleansing import GenresCleansing, PlotsCleansing
 from Plots import PlotLearning
 from Classifications import NaiveBayesClassification
 from WordDictionary import PlotsWordDictionary
+from WordDictionary import RemoveStopWords
+
 
 # count of rows and cols
 movies = pd.read_csv('../input/wiki_movie_plots_deduped.csv', ',')
@@ -26,23 +29,22 @@ moviesGenre.to_csv('GenreCorrected.csv', ',')
 # preparing file with plots after correction
 
 movies = PlotsCleansing.plot_cleansing(movies)
-moviesPlot = movies[['PlotCorrected']].replace(r'\\n',' ', regex=True)
+moviesPlot = movies[['PlotCorrected']].replace(r'\\n', ' ', regex=True)
 moviesPlot.to_csv('PlotCorrected.csv')
 
 pd.set_option("display.max_colwidth", 10000)
-totest = moviesPlot['PlotCorrected'].to_string(index=False)
+allPlots = moviesPlot['PlotCorrected'].to_string(index=False)
 
-
-wynik = PlotsWordDictionary.plots_word_dictionary(totest.split())
-
-
+wordsDictionary = PlotsWordDictionary.plots_word_dictionary(allPlots.split())
+wordsDictionary = RemoveStopWords.remove_stop_words_from_dictionary(wordsDictionary)
+print(wordsDictionary)
 
 # text_file = open("Output.txt", "w")
 # text_file.write(wynik.join(" "))
 # text_file.close()
 
-# test = movies[['Title', 'PlotCorrected', 'GenreCorrected']]
-# test.to_csv('test.csv', ',')
+#test = movies[['Title', 'PlotCorrected', 'GenreCorrected']]
+#test.to_csv('test.csv', ',')
 
 # Uncomment to Naive Bayes Classification!
 # NaiveBayesClassification.naive_bayes_classification(movies)
