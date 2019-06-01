@@ -40,7 +40,7 @@ wordsDictionary = RemoveStopWords.remove_stop_words_from_dictionary(wordsDiction
 print(wordsDictionary)
 
 # text_file = open("Output.txt", "w")
-# text_file.write(wynik.join(" "))
+# text_file.write(wordsDictionary)
 # text_file.close()
 
 #test = movies[['Title', 'PlotCorrected', 'GenreCorrected']]
