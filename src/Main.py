@@ -1,10 +1,11 @@
 import pandas as pd
+import tensorflow as tf
 import numpy as np
 import sklearn
 import json
 
 # Includes
-
+from tensorflow import keras
 from Cleansing import GenresCleansing, PlotsCleansing
 from Plots import PlotLearning
 from Classifications import NaiveBayesClassification
@@ -35,7 +36,7 @@ moviesPlot.to_csv('PlotCorrected.csv')
 plots = moviesPlot.PlotCorrected
 print("Plots count: "+ str(len(plots)))
 plotsString = plots[0]
-for i in range(1, len(plots)):
+for i in range(1, 2): #len(plots)):
     plotsString += " "+plots[i]
     print("plot nubmer: "+str(i))
 
@@ -44,6 +45,30 @@ for i in range(1, len(plots)):
 wordsDictionary = PlotsWordDictionary.plots_word_dictionary(plotsString.split())
 wordsDictionary = RemoveStopWords.remove_stop_words_from_dictionary(wordsDictionary)
 print(wordsDictionary)
+
+
+
+
+
+vocabulary_size = len(wordsDictionary)
+
+# --------------------------------- wrzucone na przyszlosc --------------
+model = keras.Sequential()
+model.add(keras.layers.Embedding(vocabulary_size, 16))      # 16 wymiarow, parametry:(batch_size, sequence_length)
+model.add(keras.layers.GlobalAveragePooling1D())
+model.add(keras.layers.Dense(16, activation=tf.nn.relu))
+model.add(keras.layers.Dense(1, activation=tf.nn.sigmoid))
+# model.add(keras.layers.Dense(3, activation='softmax')) - proponowane przy loss function = sparse_categorical_crossentropy
+
+model.summary()
+
+model.compile(optimizer='adam',
+              loss='categorical_crossentropy',
+              metrics=['acc'])
+# alternatywna loss function do sprobowania: sparse_categorical_crossentropy,
+
+# --------------------------------- wrzucone na przyszlosc --------------
+
 
 # with open('file.txt', 'w') as file:
 #     file.write(json.dumps(wordsDictionary))  # use `json.loads` to do the reverse
