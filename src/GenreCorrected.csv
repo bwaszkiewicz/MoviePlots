@@ -61,6 +61,7 @@ action|comedy|superhero,2
 action|comedy|thriller,1
 action|costume,4
 action|crime,32
+action|crimewestern,1
 action|crime|adventure,2
 action|crime|comedy,3
 action|crime|drama,35
@@ -309,7 +310,7 @@ children|adventure,1
 children|animation,1
 children|drama,3
 children|science_fiction,1
-comedy,4534
+comedy,4563
 comedy|,2
 comedy|action,34
 comedy|action|adventure,2
@@ -336,7 +337,7 @@ comedy|crime|drama|thriller,1
 comedy|crime|romance,2
 comedy|crime|thriller,1
 comedy|documentary,1
-comedy|drama,585
+comedy|drama,586
 comedy|dramaanimation,1
 comedy|drama|action,1
 comedy|drama|crime,2
@@ -466,7 +467,7 @@ disaster |science_fiction,1
 disaster|science_fiction,2
 docudrama,16
 docufiction|drama,1
-documentary,73
+documentary,75
 documentary ,1
 documentary short,1
 documentarydrama,1
@@ -475,7 +476,7 @@ documentary|family,1
 documentary|fiction made with the national  board,1
 documentary|musical,1
 doubleroticleaction|drama,1
-drama,6056
+drama,6065
 dramaabout child soldiers,1
 dramaaction,2
 dramaaction|adventure,1
@@ -493,6 +494,7 @@ dramabased on the play by bernard slade,1
 dramacoproduced by the national  board,1
 dramacoproduced with the national  board,1
 dramadocumentary,1
+dramadrama,2
 dramadrama|romance,1
 dramafamily,1
 dramafamily|romancewar,1
@@ -618,7 +620,7 @@ drama|romance|crime,1
 drama|romance|family,2
 drama|romance|family|musical,1
 drama|romance|history,1
-drama|romance|homosexual|family,1
+drama|romance|homoerotic|family,1
 drama|romance|musical,3
 drama|romance|musical|comedy,1
 drama|romance|musical|comedy|family|social,1
@@ -675,13 +677,14 @@ drama|youth|sport(childrenpoker|karuta),1
 duology,1
 dystopia|crime|cyberpunk,1
 educational,3
-erotic,13
+erotic,22
 erotic|comedy,1
 erotic|drama,5
+erotic|exploitation ,1
 erotic|fantasy,1
 erotic|horror,1
 erotic|musical,1
-erotic|romance|comedy,1
+erotic|romance|comedy,2
 erotic|thriller,6
 espionage,4
 experimental,5
@@ -953,7 +956,7 @@ musical|thriller,1
 musical|thriller|drama,1
 musical|triller,1
 musical|western,2
-mystery,310
+mystery,311
 mystery|action,1
 mystery|adventure,1
 mystery|comedy,9
@@ -1137,18 +1140,13 @@ satire|drama,5
 satire|thriller,1
 school|action|drama,1
 school|sport,1
-science_fiction,658
-science_fictionexploitation,1
-science_fictionlgbtrelateddrama,1
-science_fictionmystery,2
-science_fictionthriller,5
-science_fictionwestern,1
+science_fiction,659
 science_fiction|action,10
 science_fiction|action|adventure,2
 science_fiction|action|comedy,1
 science_fiction|action|spy,1
 science_fiction|action|thriller,1
-science_fiction|adventure,2
+science_fiction|adventure,3
 science_fiction|adventure|drama|action,1
 science_fiction|adventure|romance,1
 science_fiction|animation,6
@@ -1158,40 +1156,24 @@ science_fiction|children,3
 science_fiction|comedy,31
 science_fiction|comedy|drama,1
 science_fiction|crime|thriller,1
-science_fiction|drama,12
-science_fiction|dramasupernatural,1
+science_fiction|drama,14
 science_fiction|drama|thriller,1
+science_fiction|exploitation,1
 science_fiction|family,1
 science_fiction|fantasy,5
 science_fiction|fantasy|action,1
 science_fiction|horror,16
 science_fiction|musical,2
-science_fiction|mystery,3
+science_fiction|mystery,5
 science_fiction|romance,2
 science_fiction|romance|thriller,2
 science_fiction|teen,1
-science_fiction|thriller,9
-science_fiction|time travel,1
-screwballcomedy,11
-semistaged documentary,1
+science_fiction|thriller,14
+science_fiction|western,1
 serial,71
-sexcomedy,13
-sexcomedy|drama,1
-sexploitation,8
-sexual hygiene|exploitation ,1
-sexualdrama,1
-sexual|romance|comedy,1
 sex|drama,1
-sf,1
-shakespearean,5
-shakespeareandrama,2
 short,37
-shortaction|crimewestern,1
-shortcomedy,5
-shortdocumentary,1
-shortdrama,4
 shortfantasy,1
-shortmystery,1
 shortsubject,19
 short|drama|mystery(3min),1
 siddhh narayan|charmme|sada,1
