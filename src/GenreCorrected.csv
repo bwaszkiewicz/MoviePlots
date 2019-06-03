@@ -1,10 +1,10 @@
 GenreCorrected,Count
-,127
- ,3
- triad,1
+,176
+ ,4
+ action,1
 6 mm ,1
 [],2
-action,1125
+action,1152
 action|,9
 action|7,2
 action|adventure,34
@@ -143,7 +143,7 @@ action|romance|thriller,1
 action|romance|thriller|crime,1
 action|science_fiction,36
 action|science_fiction|adventure,1
-action|science_fiction|comedy|spy|tokusatsu,1
+action|science_fiction|comedy|spy|,1
 action|science_fiction|mecha,1
 action|science_fiction|mecha|spy,1
 action|science_fiction|thriller,2
@@ -175,9 +175,10 @@ adult|romance,1
 adult|romance|comedy,1
 adult|suspense|thriller,1
 adult|thriller,2
-adventure,540
+adventure,552
 adventure|action,2
 adventure|action|comedy,1
+adventure|adventure,1
 adventure|animation,2
 adventure|animation|comedy,1
 adventure|animation|family|fantasy|comedy,1
@@ -209,9 +210,9 @@ adventure|romance|fantasy,1
 adventure|science_fiction,1
 adventure|serial,1
 adventure|superhero|fantasy,1
-adventure|swashbuckler,1
 adventure|thriller,4
-animation,604
+animation,605
+animationproduced with the national  board andwarner home video,1
 animation|,1
 animation|action|adventure,1
 animation|action|comedy,1
@@ -277,7 +278,7 @@ biblical,4
 biblicaldrama,5
 biker,7
 bikerdrama,1
-biography,229
+biography,231
 biographywar,1
 biography|action|comedy|crime|drama|history|thriller,1
 biography|comedy,3
@@ -305,12 +306,12 @@ biography|war,5
 biography|war|drama,2
 biography|western,1
 biogtaphy|crime|drama,1
-children,16
+children,17
 children|adventure,1
 children|animation,1
-children|drama,3
+children|drama,4
 children|science_fiction,1
-comedy,4563
+comedy,4589
 comedy|,2
 comedy|action,34
 comedy|action|adventure,2
@@ -391,7 +392,7 @@ comedy|sport,11
 comedy|spy,2
 comedy|superhero,3
 comedy|teen,8
-comedy|thriller,34
+comedy|thriller,36
 comedy|war,2
 comedy|western,16
 costume,11
@@ -400,7 +401,7 @@ costume|action|adventure,2
 costume|comedy,1
 costume|drama,17
 costume|fantasy,1
-crime,572
+crime,574
 crime mystery,2
 crime|action,10
 crime|adventure,2
@@ -408,7 +409,7 @@ crime|biography,2
 crime|comedy,60
 crime|comedy|drama,1
 crime|comedy|drama|mystery|thriller,1
-crime|drama,503
+crime|drama,504
 crime|drama|action,2
 crime|drama|biography,1
 crime|drama|comedy,1
@@ -428,8 +429,7 @@ crime|noir,1
 crime|political|thriller,1
 crime|romance,8
 crime|science_fiction,1
-crime|thriller,82
-crime|thrillerromance,2
+crime|thriller,84
 crime|thriller|comedy,1
 crime|thriller|drama,1
 crime|thriller|neonoir,1
@@ -448,7 +448,7 @@ dance|idol|magical_girl|musical,1
 dance|musical|idol,1
 dance|parody,1
 dance|romance,1
-dark slasher,1
+dark action,1
 detective,7
 detective fiction|drama,2
 detectivedrama,1
@@ -476,7 +476,7 @@ documentary|family,1
 documentary|fiction made with the national  board,1
 documentary|musical,1
 doubleroticleaction|drama,1
-drama,6065
+drama,6068
 dramaabout child soldiers,1
 dramaaction,2
 dramaaction|adventure,1
@@ -503,7 +503,7 @@ dramaloosely based on oliver twist,1
 dramathriller,4
 dramatic biography,1
 dramaticcomedy,4
-drama|,4
+drama|,5
 drama|action,34
 drama|action|,1
 drama|action|adventure,1
@@ -515,14 +515,14 @@ drama|action|crime|thriller|romance,1
 drama|action|fantasy,1
 drama|action|fantasy|adventure,2
 drama|action|military|spy,1
+drama|action|mystery|science_fiction|spy,1
 drama|action|romance,2
 drama|action|romance|mials,1
 drama|action|science_fiction,1
 drama|action|science_fiction|comedy,2
 drama|action|science_fiction|spy,1
 drama|action|sport(volleyball),1
-drama|action|spy|science_fiction|superhero|tokusatsu,2
-drama|action|supernatural|science_fiction|spy,1
+drama|action|spy|science_fiction|superhero,2
 drama|action|suspense,1
 drama|action|suspense|crime,1
 drama|action|thriller,1
@@ -592,7 +592,7 @@ drama|history|western,1
 drama|horror,15
 drama|horror|thriller,1
 drama|independent movie,1
-drama|kaiju|mecha|space opera|science_fiction|action,1
+drama|kaiju|mecha|science_fiction|science_fiction|action,1
 drama|mecha|science_fiction|adventure|spy,2
 drama|musical,48
 drama|musical|romance,4
@@ -650,7 +650,7 @@ drama|social|action,1
 drama|social|musical|romance,1
 drama|sport,24
 drama|sport(aquatics|swimming)|comedy|drama,2
-drama|sport(road_movie bicycle racing)|comedy|drama,1
+drama|sport|comedy|drama,1
 drama|superhero,3
 drama|suspense,1
 drama|suspense|fantasy|costume,1
@@ -662,7 +662,6 @@ drama|thriller,47
 drama|thriller|business,1
 drama|thriller|crime,1
 drama|thriller|war,1
-drama|tokusatsu|action|science_fiction,1
 drama|war,48
 drama|wardocumentary,1
 drama|war|comedy|action,1
@@ -691,7 +690,7 @@ experimental,5
 experimental|short,1
 exploitation,8
 fairy tale,2
-family,234
+family,237
 family|action,1
 family|adventure,5
 family|animation,5
@@ -702,7 +701,7 @@ family|comedy|drama,1
 family|comedy|romance,1
 family|crime|drama,1
 family|crime|drama|romance,1
-family|drama,87
+family|drama,101
 family|drama|comedy,2
 family|drama|romance,3
 family|drama|social,1
@@ -714,7 +713,7 @@ family|liveaction|animation,2
 family|musical,5
 family|musical|romance,1
 family|mystery,1
-family|romance,3
+family|romance,4
 family|romance|action,1
 family|romance|drama,3
 family|science_fiction,2
@@ -727,7 +726,7 @@ family|superhero,1
 family|thriller,2
 family|thriller|drama,1
 family|western,1
-fantasy,204
+fantasy,209
 fantasy|,2
 fantasy|action,3
 fantasy|action|adventure,2
@@ -738,20 +737,20 @@ fantasy|action|drama|adventure|mystery|spy,1
 fantasy|action|science_fantasy,2
 fantasy|action|science_fantasy|science_fiction,1
 fantasy|action|science_fantasy|science_fiction|spy|superhero,1
-fantasy|adventure,12
+fantasy|adventure,13
 fantasy|adventure|children,1
 fantasy|adventure|comedy,1
 fantasy|adventure|musical|drama|romance,1
 fantasy|animation,9
 fantasy|children,3
 fantasy|children|action|comedy|comedy|drama,1
-fantasy|comedy,7
+fantasy|comedy,9
 fantasy|comedy|action,1
 fantasy|comedy|adventure,1
 fantasy|costume,1
 fantasy|drama,10
 fantasy|drama|action|magical_girl|science_fantasy|spy,1
-fantasy|drama|action|spy|superhero|tokusatsu,1
+fantasy|drama|action|spy|superhero,1
 fantasy|drama|children|action|comedy,2
 fantasy|drama|children|magical_girl|science_fantasy,1
 fantasy|drama|children|science_fiction|adventure|spy,1
@@ -776,10 +775,9 @@ fantasy|romance|comedy,1
 fantasy|romance|drama,1
 fantasy|romance|horror,1
 fantasy|science_fiction,2
-fantasy|science_fiction|action|mecha|supernatural,1
+fantasy|science_fiction|action|mecha|mystery,1
 fantasy|science_fiction|drama,1
 fantasy|sport,1
-fantasy|swashbuckler,1
 fantasy|teen,1
 fantasy|thriller,12
 fantasy|wuxia,1
@@ -804,7 +802,7 @@ history|animation,1
 history|biography,4
 history|biography|drama,1
 history|comedy,3
-history|comedy|jidaigeki|tokusatsu|science_fantasy,1
+history|comedy|jidaigeki||science_fantasy,1
 history|comedy|satire,1
 history|costume|drama,1
 history|costume|erotic,1
@@ -812,12 +810,11 @@ history|crime,1
 history|disaster|romance,1
 history|drama,66
 history|drama|,1
-history|drama|action,2
+history|drama|action,3
 history|drama|action|superhero|spy|science_fiction,1
 history|drama|comedy|drama|romance|youth,1
 history|drama|musical,1
 history|drama|romance,1
-history|drama|triad,1
 history|drama|war,1
 history|erotic,1
 history|fantasy,2
@@ -837,12 +834,13 @@ history|thriller|comedy|fantasy|science_fantasy,1
 history|thriller|drama,1
 history|war,3
 hockeydrama,1
-horror,1186
+horror,1190
+horror ,1
 horror|,1
-horror|action,3
+horror|action,6
 horror|action|comedy,1
-horror|action|monster|thriller|supernatural|spy,1
-horror|action|supernatural|thriller|tokusatsu|drama,1
+horror|action|monster|thriller|mystery|spy,1
+horror|action|mystery|thriller||drama,1
 horror|adventure,1
 horror|animation,1
 horror|comedy,71
@@ -860,7 +858,7 @@ horror|fantasy|adventure,2
 horror|fantasy|drama,1
 horror|fantasy|drama|horror|action|monster,2
 horror|fantasy|horror|action|monster|spy,1
-horror|fantasy|supernatural|jidaigeki|action,1
+horror|fantasy|mystery|jidaigeki|action,1
 horror|horror|action,1
 horror|masala,1
 horror|musical,4
@@ -873,15 +871,14 @@ horror|romance,2
 horror|romance|comedy,13
 horror|science_fiction,11
 horror|science_fiction|drama,1
-horror|slasher,3
 horror|suspense,6
 horror|suspense|thriller,2
 horror|thriller,44
 horror|thriller|drama,2
 horror|thriller|drama|fantasy,3
+horror|thriller|mystery,2
+horror|thriller|mystery|action|monster,1
 horror|thriller|romance|musical,1
-horror|thriller|supernatural,2
-horror|thriller|supernatural|action|monster,1
 horror|western,2
 immigrantfamily|drama,1
 independent,1
@@ -956,8 +953,9 @@ musical|thriller,1
 musical|thriller|drama,1
 musical|triller,1
 musical|western,2
-mystery,311
+mystery,323
 mystery|action,1
+mystery|action|animation,3
 mystery|adventure,1
 mystery|comedy,9
 mystery|crime|drama,1
@@ -1010,7 +1008,7 @@ period|romance,1
 period|thriller,1
 pink,4
 police|drama,2
-political,8
+political,10
 political|comedy,2
 political|crime|thriller,1
 political|drama,10
@@ -1018,11 +1016,11 @@ political|drama|action|science_fiction|mystery|thriller,1
 political|drama|comedy|romance|comedy,1
 political|drama|crime|mystery,1
 political|drama|crime|mystery|thriller,2
-political|drama|crime|thriller|neonoir|supernatural,1
+political|drama|crime|thriller|neonoir|mystery,1
 political|drama|political|thriller,1
 political|drama|thriller,1
 political|fantasy|drama|mystery|thriller,1
-political|neonoir|supernatural|spy|action,1
+political|neonoir|mystery|spy|action,1
 political|satire,3
 political|thriller,20
 portmanteauhorror,2
@@ -1067,7 +1065,7 @@ road_moviethriller,2
 rock musical,1
 rom com,14
 rom com|action,1
-romance,957
+romance,961
 romance|action,23
 romance|action|comedy,3
 romance|action|drama,2
@@ -1094,7 +1092,7 @@ romance|crime,2
 romance|crime|drama,1
 romance|crime|mystery,1
 romance|disaster,1
-romance|drama,261
+romance|drama,263
 romance|drama|action,1
 romance|drama|comedy,4
 romance|drama|comedy|musical,1
@@ -1116,7 +1114,7 @@ romance|fantasy|musical,1
 romance|girl,1
 romance|horror,1
 romance|horror|thriller,1
-romance|musical,13
+romance|musical,14
 romance|road_movie,1
 romance|science_fiction,1
 romance|science_fiction|thriller,1
@@ -1133,15 +1131,16 @@ romance|tragerdy|drama,1
 romance|trilogy,1
 romance|war,3
 romance|wuxia,1
-satire,8
+satire,10
 satire|comedy,5
 satire|comedy|teen ,1
-satire|drama,5
+satire|drama,6
 satire|thriller,1
+school ,1
 school|action|drama,1
 school|sport,1
-science_fiction,659
-science_fiction|action,10
+science_fiction,660
+science_fiction|action,11
 science_fiction|action|adventure,2
 science_fiction|action|comedy,1
 science_fiction|action|spy,1
@@ -1170,40 +1169,16 @@ science_fiction|romance|thriller,2
 science_fiction|teen,1
 science_fiction|thriller,14
 science_fiction|western,1
-serial,71
+serial,75
 sex|drama,1
-short,37
-shortfantasy,1
-shortsubject,19
+short,56
 short|drama|mystery(3min),1
 siddhh narayan|charmme|sada,1
 siddhh|genelia d'souza|prakash raj|jayasudha,1
 silent hills studio,1
 silent sport,1
 sivaji|krishna bhagavaan|ali,1
-slahser,1
-slapstick,12
-slapstickcomedy,2
-slasher,12
-slasher ,4
 social,83
-socialaction,1
-socialbiography,1
-socialchildren,1
-socialchildren|drama,1
-socialcomedy,1
-socialcrime,2
-socialcrime|drama,1
-socialfamily,3
-socialfamily|drama,14
-socialfamily|romance,1
-socialromance,3
-socialromance|drama,2
-socialromance|musical,1
-socialsatire,2
-socialsatire|drama,1
-socialscience_fiction|action,1
-socialthriller,2
 social|action,1
 social|adult,1
 social|comedy,1
@@ -1214,102 +1189,43 @@ social|drama|romance,1
 social|romance,1
 social|thriller,1
 social|war|action,1
-sociofantasy,4
-sociofantasy|comedy,2
-sociopolitical,2
-south african western,1
-space opera,1
-splatter,1
-splattercomedy,1
-spoof,1
-sport,26
-sport(road_movie bicycle racing),1
-sport(shogi|chess)|comedy|drama,2
-sportbiography,1
-sportdrama,21
+sport,51
 sport|comedy,11
 sport|drama,5
 sport|family,1
 sport|social,1
 spy,34
-spyaction,1
-spyanthology,1
-spycomedy,6
-spycomedy|thriller,2
-spyserial,2
-spyspoof,1
 spy|action,19
 spy|action|comedy,1
-spy|action|james bond,1
 spy|comedy,5
 spy|drama,8
 spy|mystery,1
 spy|thriller,6
 spy|war,1
-srikanth|bhavana,1
-srikanth|rajendra prasad|sindhu tolani,1
-srikanth|venu madhav|ali,1
-stoner ,1
-stopmotionanimation,1
-stopmotionanimationproduced with the national  board andwarner home video,1
-student ,1
-stylish,1
-suhasini|sharwanand|shriya reddy,1
-sumanth|charmme,1
-sumanth|kamalinee mukherjee,1
-summer campcomedy,1
-sunil|i agarwal,1
-super hit movie,2
-superhero,60
-superheroaction|adventure,3
-superherocomedy,1
-superherohistory,1
-superherowestern,1
+superhero,61
 superhero|action,3
+superhero|action|adventure,3
 superhero|action|adventure|fantasy|drama|war,1
 superhero|action|adventure|fantasy|science_fiction,1
 superhero|action|adventure|fantasy|science_fiction|comedy,1
 superhero|biography,2
 superhero|biography|romance|drama,1
-superhero|comedy,1
+superhero|comedy,2
 superhero|comedy|adventure|science_fiction,1
 superhero|drama,1
 superhero|dramaset  years ago in the canadian arctic,1
-superhero|history,1
+superhero|history,2
 superhero|patriotism,1
 superhero|science_fiction,1
-superhero|tokusatsu,1
-superhero|western,1
-supernatural,4
-supernaturalaction,1
-supernaturalcomedy,2
-supernaturalthriller,5
-supernatural|action|animation,3
-surf|thriller,1
-surrealcomedy,1
-surrealdrama,1
-survival,1
-suspense,104
-suspense romance,1
-suspenseaction|horror,1
+superhero|western,2
+suspense,105
 suspense|comedy,1
 suspense|crime,1
 suspense|drama,1
 suspense|thriller,18
-swashbuckler,10
-swashbuckling musical|romance,1
-sword,4
-tapas paul|debashree roy,1
 teen,2
 teen|comedy,2
-televisiondrama,1
-thai drama,1
-thriller,1022
-thrilleraction,1
-thrilleraction|romance,1
-thrillercomedy,2
-thrillerroad_movie,1
-thrillerromance,3
+thriller,1033
 thriller|action,4
 thriller|action|drama,1
 thriller|action|romance,1
@@ -1327,7 +1243,7 @@ thriller|horror,6
 thriller|musical,1
 thriller|mystery,4
 thriller|mystery|romance,1
-thriller|romance,7
+thriller|romance,8
 thriller|romance|musical,1
 thriller|science_fiction|action,1
 thriller|social,1
@@ -1335,25 +1251,8 @@ thriller|spy,1
 thriller|suspense,1
 thriller|suspense|crime,1
 thriller|western,2
-timetravellingcomedy,1
-tokusatsu,28
-tokusatsu vcinema,1
-tokusatsu|action|science_fiction,5
-tokusatsu|action|science_fiction|spy|superhero,1
-tragiccomedy,1
-travel,1
-triad,1
-tv miniseries,1
-tv miniseries|docudrama,1
-uday kiran|vimala raman,1
-united ists biography,1
 unknown,6083
-usa,1
-usa|can,1
-vampire ,1
-vampire|horror,1
 viacom 8 motion pictures,1
-vigilante|action|thriller,1
 war,356
 waraction,1
 warbiography,1
@@ -1382,7 +1281,7 @@ war|science_fiction,1
 war|spy,2
 war|thriller,1
 war|western,1
-western,868
+western,869
 westerncomedy,16
 westerndrama,3
 westernmusical,1
