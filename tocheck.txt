@@ -1,0 +1,11 @@
+thriller 1033
+science_fiction 660
+romance 961
+musical 479
+horror 1190
+drama 6048
+crime 574
+comedy 4589
+animation 605
+adventure 552
+action 1152
