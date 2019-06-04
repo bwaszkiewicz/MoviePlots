@@ -6,7 +6,7 @@ import json
 
 # Includes
 from tensorflow import keras
-from Preprocessing import GenresCleansing, PlotsCleansing, PandasProcessing
+from Preprocessing import GenresCleansing, PlotsCleansing, PandasProcessing, DataShuffle
 from Plots import PlotLearning
 from Classifications import NaiveBayesClassification
 from WordDictionary import PlotsWordDictionary
@@ -37,17 +37,17 @@ moviesPlot.to_csv('PlotCorrected.csv')
 clippedMoviesPanda = movies[['PlotCorrected', 'GenreCorrected']]
 
 rawProcessedMoviesPanda = PandasProcessing.genres_filtr(clippedMoviesPanda) # Only PlotCorrected, single Genres
-rawProcessedMoviesPanda.to_csv('test.csv',',')
 
+DataShuffle.cut_movies(rawProcessedMoviesPanda,2)
 
-
-
+#
+# # rawProcessedMoviesPanda.to_csv('test.csv',',')
 # # loop for make dictionary
 #
-# plots = moviesPlot.PlotCorrected
+# plots = rawProcessedMoviesPanda.PlotCorrected
 # print("Plots count: "+ str(len(plots)))
 # plotsString = plots[0]
-# for i in range(1, 2): #len(plots)):
+# for i in range(1, len(plots)): #2
 #     plotsString += " "+plots[i]
 #     print("plot nubmer: "+str(i))
 #
@@ -55,12 +55,26 @@ rawProcessedMoviesPanda.to_csv('test.csv',',')
 #
 # wordsDictionary = PlotsWordDictionary.plots_word_dictionary(plotsString.split())
 # wordsDictionary = RemoveStopWords.remove_stop_words_from_dictionary(wordsDictionary)
-# print(wordsDictionary)
+# # print(wordsDictionary)
+#
+# # with open('file.txt', 'w') as file:
+# #     file.write(json.dumps(wordsDictionary))  # use `json.loads` to do the reverse
+#
+# print("Words dictionary created!")
+#
+# genresStandardizedMoviesPanda = PandasProcessing.genres_normalization(rawProcessedMoviesPanda)
+# standardizedMoviesPanda = PandasProcessing.plot_normalization(genresStandardizedMoviesPanda, wordsDictionary)
+#
+# standardizedMoviesPanda.to_csv('standardized.csv')
 #
 #
+# print (PandasProcessing.normalization_test(standardizedMoviesPanda))
 #
 #
-#
+
+
+
+
 # vocabulary_size = len(wordsDictionary)
 #
 # # --------------------------------- wrzucone na przyszlosc --------------
