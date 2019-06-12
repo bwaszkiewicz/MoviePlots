@@ -1,5 +1,7 @@
 from nltk.corpus import stopwords
 
+
+## deprecated
 def remove_stop_words_from_dictionary(words):
     stopWordsSet = set(stopwords.words('english'))
     i = 0

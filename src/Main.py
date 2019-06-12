@@ -6,6 +6,7 @@ import json
 
 # Includes
 from tensorflow import keras
+from sklearn.utils import shuffle
 from Preprocessing import GenresCleansing, PlotsCleansing, PandasProcessing, DataShuffle
 from Plots import PlotLearning
 from Classifications import NaiveBayesClassification
@@ -38,39 +39,44 @@ clippedMoviesPanda = movies[['PlotCorrected', 'GenreCorrected']]
 
 rawProcessedMoviesPanda = PandasProcessing.genres_filtr(clippedMoviesPanda) # Only PlotCorrected, single Genres
 
-DataShuffle.cut_movies(rawProcessedMoviesPanda,2)
+shuffledRawProcessedMoviesPanda = DataShuffle.cut_movies(rawProcessedMoviesPanda, 200)
+if shuffledRawProcessedMoviesPanda is None:
+    print("Too large count")
+    sys.exit()
 
-#
-# # rawProcessedMoviesPanda.to_csv('test.csv',',')
-# # loop for make dictionary
-#
-# plots = rawProcessedMoviesPanda.PlotCorrected
-# print("Plots count: "+ str(len(plots)))
-# plotsString = plots[0]
-# for i in range(1, len(plots)): #2
-#     plotsString += " "+plots[i]
-#     print("plot nubmer: "+str(i))
-#
-# # print(string)  # single plot
-#
-# wordsDictionary = PlotsWordDictionary.plots_word_dictionary(plotsString.split())
-# wordsDictionary = RemoveStopWords.remove_stop_words_from_dictionary(wordsDictionary)
-# # print(wordsDictionary)
-#
-# # with open('file.txt', 'w') as file:
-# #     file.write(json.dumps(wordsDictionary))  # use `json.loads` to do the reverse
-#
-# print("Words dictionary created!")
-#
-# genresStandardizedMoviesPanda = PandasProcessing.genres_normalization(rawProcessedMoviesPanda)
-# standardizedMoviesPanda = PandasProcessing.plot_normalization(genresStandardizedMoviesPanda, wordsDictionary)
-#
-# standardizedMoviesPanda.to_csv('standardized.csv')
-#
-#
-# print (PandasProcessing.normalization_test(standardizedMoviesPanda))
-#
-#
+# print(shuffledRawProcessedMoviesPanda)
+
+# rawProcessedMoviesPanda.to_csv('test.csv',',')
+# loop for make dictionary
+
+plots = shuffledRawProcessedMoviesPanda.PlotCorrected
+print("Plots count: "+ str(len(plots)))
+plotsString = plots[0]
+for i in range(1, len(plots)): #2
+    plotsString += " "+plots[i]
+    print("plot nubmer: "+str(i))
+
+# print(plotsString)  # single plot
+
+wordsDictionary = PlotsWordDictionary.plots_word_dictionary(plotsString.split())
+
+# print(wordsDictionary)
+
+# with open('file.txt', 'w') as file:
+#     file.write(json.dumps(wordsDictionary))  # use `json.loads` to do the reverse
+
+print("Words dictionary created!")
+
+genresStandardizedMoviesPanda = PandasProcessing.genres_normalization(shuffledRawProcessedMoviesPanda)
+standardizedMoviesPanda = PandasProcessing.plot_normalization(genresStandardizedMoviesPanda, wordsDictionary)
+
+standardizedMoviesPanda = shuffle(standardizedMoviesPanda)
+standardizedMoviesPanda.to_csv('standardized.csv')
+
+print ("Wynik testu normalizacji: ")
+print (PandasProcessing.normalization_test(standardizedMoviesPanda))
+print ("(True - dane poprawne; False - dane nie poprawne")
+
 
 
 

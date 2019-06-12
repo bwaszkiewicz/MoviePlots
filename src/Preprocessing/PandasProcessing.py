@@ -44,10 +44,16 @@ def genres_normalization(data):
 
 
 def plot_normalization(data, words_dictionary):
-    for i in range(0, len(words_dictionary)):
-        data['PlotCorrected'] = data['PlotCorrected'].str.replace(words_dictionary[i], str(i))
-        print("Index of word in dictionary: "+str(i)+"/"+str(len(words_dictionary)))
-    # data = plot_postnormalization_cleaning(data)
+    for j in range(0, len(data)):
+        raw_plot_array = data.PlotCorrected[j].split()
+
+        for i in range(0, len(raw_plot_array)):
+            # data['PlotCorrected'] = data['PlotCorrected'].str.replace(words_dictionary[i], str(i))
+            if raw_plot_array[i] in words_dictionary:
+                raw_plot_array[i] = str(words_dictionary[raw_plot_array[i]])
+            print("Index of word in dictionary: "+str(i)+"/"+str(len(words_dictionary)))
+        data.PlotCorrected[j] = " ".join(raw_plot_array)
+    data = plot_postnormalization_cleaning(data)
     return data
 
 def plot_postnormalization_cleaning(data):
