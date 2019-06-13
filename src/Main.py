@@ -6,6 +6,7 @@ import json
 
 # Includes
 from tensorflow import keras
+from sklearn.preprocessing import OneHotEncoder
 from sklearn.utils import shuffle
 from Preprocessing import GenresCleansing, PlotsCleansing, PandasProcessing, DataShuffle
 from Plots import PlotLearning
@@ -44,7 +45,7 @@ if shuffledRawProcessedMoviesPanda is None:
     print("Too large count")
     sys.exit()
 
-# print(shuffledRawProcessedMoviesPanda)
+print(shuffledRawProcessedMoviesPanda)
 
 # rawProcessedMoviesPanda.to_csv('test.csv',',')
 # loop for make dictionary
@@ -79,26 +80,75 @@ print ("(True - dane poprawne; False - dane nie poprawne")
 
 
 
-
-
-# vocabulary_size = len(wordsDictionary)
+##################################### OLA ################################################
+# standardizedData = pd.read_csv('standardized.csv', ',')
 #
-# # --------------------------------- wrzucone na przyszlosc --------------
+# standardizedDataSize = len(standardizedData)
+#
+# for i, row in standardizedData.iterrows():
+#     new = standardizedData.at[i, 'PlotCorrected'].split()
+#     standardizedData.at[i, 'PlotCorrected'] = new
+# #standardizedData['PlotCorrected']
+# #standardizedData['PlotCorrected'] = standardizedData['PlotCorrected'].astype(float);
+# #standardizedData['GenreCorrected'] = standardizedData['GenreCorrected'].astype(float);
+#
+# standardizedData['PlotCorrected'].tolist()
+#
+# x_train = standardizedData.PlotCorrected[:1000]
+# y_train = standardizedData.GenreCorrected[:1000]
+#
+# partial_x_train = standardizedData.PlotCorrected[1000:1200]
+# partial_y_train = standardizedData.GenreCorrected[1000:1200]
+#
+# x_test = standardizedData.PlotCorrected[1200:]
+# y_test = standardizedData.GenreCorrected[1200:]
+#
+# print(f'{len(standardizedData)} movies in the standardized data')
+# print(f'{len(x_train)} plots in the train set')
+# print(f'{len(y_train)} genres in the train set')
+#
+# print(f'{len(x_test)} plots in the test set')
+# print(f'{len(y_test)} genres in the test set')
+#
+#
+# # vocabulary_size = len(wordsDictionary)
+# vocabulary_size = 37649 # pomocniczo zeby nie puszczac calosci
+# print(vocabulary_size)
+#
+#  # # --------------------------------- wrzucone na przyszlosc --------------
 # model = keras.Sequential()
 # model.add(keras.layers.Embedding(vocabulary_size, 16))      # 16 wymiarow, parametry:(batch_size, sequence_length)
 # model.add(keras.layers.GlobalAveragePooling1D())
 # model.add(keras.layers.Dense(16, activation=tf.nn.relu))
 # model.add(keras.layers.Dense(1, activation=tf.nn.sigmoid))
-# # model.add(keras.layers.Dense(3, activation='softmax')) - proponowane przy loss function = sparse_categorical_crossentropy
-#
+#  # # model.add(keras.layers.Dense(3, activation='softmax')) - proponowane przy loss function = sparse_categorical_crossentropy
+#  #
 # model.summary()
+#  #
 #
-# model.compile(optimizer='adam',
-#               loss='categorical_crossentropy',
-#               metrics=['acc'])
-# # alternatywna loss function do sprobowania: sparse_categorical_crossentropy,
 #
-# # --------------------------------- wrzucone na przyszlosc --------------
+# # x_train = np.array(x_train)
+# # partial_x_train = np.array(partial_x_train)
+# # y_train = np.array(y_train)
+# # partial_y_train = np.array(partial_y_train)
+#
+# enc = OneHotEncoder(sparse=False)
+# #x_train = enc.fit_transform(x_train)
+# #partial_x_train = enc.fit_transform(partial_x_train)
+#
+# model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['acc'])
+#  # # alternatywna loss function do sprobowania:categorical_crossentropy, sparse_categorical_crossentropy,
+#  #
+#  # # --------------------------------- wrzucone na przyszlosc --------------
+#
+# #history = model.fit(partial_x_train, partial_y_train,  epochs=40, batch_size=512, validation_data=(x_train, y_train), verbose=1)
+# #results = model.evaluate(x_test, y_test)
+# #print(results)
+
+##################################### OLA ################################################
+
+
+
 #
 #
 # # with open('file.txt', 'w') as file:
