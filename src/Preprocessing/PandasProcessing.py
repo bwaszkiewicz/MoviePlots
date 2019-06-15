@@ -48,7 +48,6 @@ def plot_normalization(data, words_dictionary):
         raw_plot_array = data.PlotCorrected[j].split()
 
         for i in range(0, len(raw_plot_array)):
-            # data['PlotCorrected'] = data['PlotCorrected'].str.replace(words_dictionary[i], str(i))
             if raw_plot_array[i] in words_dictionary:
                 raw_plot_array[i] = str(words_dictionary[raw_plot_array[i]])
             print("Index of word in dictionary: "+str(i)+"/"+str(len(words_dictionary)))
@@ -62,6 +61,44 @@ def plot_postnormalization_cleaning(data):
     # str = re.sub("[a-zA-Z]+", "", str)
     data['PlotCorrected'] = data['PlotCorrected'].str.replace(r'[a-zA-Z]+', '')
     return data
+
+def averaging_count_plot_words(data, numberOfInputWords):
+
+    # words_in_data = 0
+    # for i in range(0, len(data.PlotCorrected)):
+    #     words_in_data += (len(data.PlotCorrected[i].split()))
+    #
+    # avarage_words = round(words_in_data / len(data.PlotCorrected))
+
+    current_plot_words_list = []
+    avarage_words = numberOfInputWords
+
+    for i in range(0,len(data.PlotCorrected)):
+        current_plot_words_list = data.PlotCorrected[i].split()
+        if len(current_plot_words_list) < avarage_words:
+            j = 0
+            while len(current_plot_words_list) < avarage_words:
+                current_plot_words_list.append(current_plot_words_list[j])
+                j+=1
+            data.PlotCorrected[i] = " ".join(current_plot_words_list)
+        elif len(current_plot_words_list) > avarage_words:
+            for k in range(avarage_words, len(current_plot_words_list)):
+                del current_plot_words_list[avarage_words]
+            data.PlotCorrected[i] = " ".join(current_plot_words_list)
+
+
+    good = True
+    basic_count = len(data.PlotCorrected[0].split())
+    for i in range(1, len(data.PlotCorrected)):
+        if basic_count != len(data.PlotCorrected[i].split()):
+            good = False
+
+    print("Po usrednieniu")
+    print(good)
+
+
+    return data
+
 
 def normalization_test(data):
     list = []

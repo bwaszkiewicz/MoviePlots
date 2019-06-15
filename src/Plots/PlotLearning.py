@@ -8,7 +8,7 @@ from sklearn.datasets import load_digits
 from sklearn.model_selection import learning_curve
 from sklearn.model_selection import ShuffleSplit
 
-
+ # DEPRECATED
 def plot_learning_curve(estimator, title, X, y, ylim=None, cv=None,
                         n_jobs=None, train_sizes=np.linspace(0.01, 1.0, 5)):
     plt.figure()
