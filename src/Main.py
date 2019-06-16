@@ -1,5 +1,6 @@
 import pandas as pd
 import tensorflow as tf
+import matplotlib.pyplot as plt
 import numpy as np
 import sklearn
 
@@ -18,8 +19,6 @@ vocabulary_size = 41480 #37649  # pomocniczo zeby nie puszczac calosci
 if createCSV == False:
     Preprocessing.prepare_csv(outputFileCSV, numberOfPlotsPerGenre, numberOfInputWords)
 
-
-##################################### OLA ################################################
 standardizedData = pd.read_csv('standardized.csv', ',')
  # TESTY
 print("Wynik testu normalizacji: ")
@@ -27,7 +26,9 @@ print(PandasProcessing.normalization_test(standardizedData))
 print("(True - dane poprawne; False - dane nie poprawne")
 
 
-standardizedDataSize = len(standardizedData)
+# standardizedDataSize = len(standardizedData)
+
+# -- preparing data for the model
 
 for i, row in standardizedData.iterrows():
     new = standardizedData.at[i, 'PlotCorrected'].split()
@@ -70,33 +71,45 @@ print(f'{len(y_test)} genres in the test set')
 x_train = keras.preprocessing.sequence.pad_sequences(x_train, padding='post', maxlen=numberOfInputWords)
 x_test = keras.preprocessing.sequence.pad_sequences(x_test, padding='post', maxlen=numberOfInputWords)
 
-
- # # --------------------------------- MODEL --------------
+# -- preparing the sequential model
 model = keras.Sequential()
-
-# model.add(keras.layers.Embedding(vocabulary_size, 16))      # 16 wymiarow, parametry:(batch_size, sequence_length)
 model.add(keras.layers.Embedding(input_dim=vocabulary_size,output_dim= 512, input_length=numberOfInputWords)) # model.add(keras.layers.Embedding(input_dim=vocabulary_size, output_dim=11, input_length=250))
 model.add(keras.layers.GlobalAveragePooling1D())
-# model.add(keras.layers.Flatten())
-# model.add(keras.layers.Dense(512, input_shape=(numberOfInputWords,), activation=tf.nn.relu))
-# model.add(keras.layers.Dense(512, activation=tf.nn.relu))
 model.add(keras.layers.Dense(512, activation=tf.nn.tanh))
 model.add(keras.layers.Dropout(0.3))
-model.add(keras.layers.Dense(11, activation='softmax'))  #- proponowane przy loss function = sparse_categorical_crossentropy
-model.summary()
-model.compile(optimizer='adam', loss = 'sparse_categorical_crossentropy', metrics=['acc'])
- # # alternatywna loss function do sprobowania:categorical_crossentropy, sparse_categorical_crossentropy, binary_crossentropy
+model.add(keras.layers.Dense(11, activation='softmax'))
 
-history = model.fit(x_train, y_train, epochs=5, batch_size=25) # class_weight=10
+model.summary()
+
+model.compile(optimizer='adam', loss = 'sparse_categorical_crossentropy', metrics=['acc'])
+
+history = model.fit(x_train, y_train, epochs=5, batch_size=250)
 
 results = model.evaluate(x_test, y_test, batch_size=100)
+
+# -- printing results
 print(results)
 
 for layer in model.layers:
     print(layer.output_shape)
 
-##################################### OLA ################################################
+history_dict = history.history
+print(history_dict.keys())
 
+acc = history_dict['acc']
+loss = history_dict['loss']
+epochs = range(1, len(acc) + 1)
+
+# "bo" -> "blue dot"
+plt.plot(epochs, loss, 'bo', label='Training loss')
+# b -> "solid blue line"
+plt.plot(epochs, acc, 'b', label='Training acc')
+plt.title('Training acc and loss')
+plt.xlabel('Epochs')
+plt.ylabel('Loss & Acc')
+plt.legend()
+
+plt.show()
 
 
 #
