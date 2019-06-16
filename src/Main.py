@@ -9,14 +9,14 @@ from tensorflow import keras
 from Preprocessing import Preprocessing, PandasProcessing
 
 
-createCSV = True
+createCSV = False
 outputFileCSV = "standardized.csv"
-numberOfPlotsPerGenre = 250
-numberOfInputWords = 500
+numberOfPlotsPerGenre = 400
+numberOfInputWords = 200
 # vocabulary_size = len(wordsDictionary)
-vocabulary_size = 41480 #37649  # pomocniczo zeby nie puszczac calosci
+vocabulary_size = 51803 #44994 #41480 #37649  # pomocniczo zeby nie puszczac calosci
 
-if createCSV == False:
+if createCSV == True:
     Preprocessing.prepare_csv(outputFileCSV, numberOfPlotsPerGenre, numberOfInputWords)
 
 standardizedData = pd.read_csv('standardized.csv', ',')
@@ -44,17 +44,17 @@ for x in x_data:
         x[index] = float(z)
         index += 1
 
-x_train = x_data[:1750]
-y_train = standardizedData.GenreCorrected[:1750]
-x_test = x_data[1750:]
-y_test = standardizedData.GenreCorrected[1750:]
+x_train = x_data[:3000]
+y_train = standardizedData.GenreCorrected[:3000]
+x_test = x_data[3000:]
+y_test = standardizedData.GenreCorrected[3000:]
 
 index=0
 for y in y_train:
     y_train[index] = float(y)
     index += 1
 
-index=1750
+index=3000
 for y in y_test:
     y_test[index] = float(y)
     index += 1
@@ -75,17 +75,17 @@ x_test = keras.preprocessing.sequence.pad_sequences(x_test, padding='post', maxl
 model = keras.Sequential()
 model.add(keras.layers.Embedding(input_dim=vocabulary_size,output_dim= 512, input_length=numberOfInputWords)) # model.add(keras.layers.Embedding(input_dim=vocabulary_size, output_dim=11, input_length=250))
 model.add(keras.layers.GlobalAveragePooling1D())
-model.add(keras.layers.Dense(512, activation=tf.nn.tanh))
-model.add(keras.layers.Dropout(0.3))
+# model.add(keras.layers.Dense(512, activation=tf.nn.tanh))
+# model.add(keras.layers.Dropout(0.3))
 model.add(keras.layers.Dense(11, activation='softmax'))
 
 model.summary()
 
 model.compile(optimizer='adam', loss = 'sparse_categorical_crossentropy', metrics=['acc'])
 
-history = model.fit(x_train, y_train, epochs=5, batch_size=250)
+history = model.fit(x_train, y_train, epochs=5, batch_size=25)
 
-results = model.evaluate(x_test, y_test, batch_size=100)
+results = model.evaluate(x_test, y_test, batch_size=50)
 
 # -- printing results
 print(results)
@@ -101,12 +101,12 @@ loss = history_dict['loss']
 epochs = range(1, len(acc) + 1)
 
 # "bo" -> "blue dot"
-plt.plot(epochs, loss, 'bo', label='Training loss')
+plt.plot(epochs, loss, 'r', label='Training loss')
 # b -> "solid blue line"
-plt.plot(epochs, acc, 'b', label='Training acc')
-plt.title('Training acc and loss')
+plt.plot(epochs, acc, 'g', label='Training accuracy')
+plt.title('Training accuracy and loss')
 plt.xlabel('Epochs')
-plt.ylabel('Loss & Acc')
+plt.ylabel('Loss/Accuracy')
 plt.legend()
 
 plt.show()
