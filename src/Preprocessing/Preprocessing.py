@@ -60,6 +60,8 @@ def prepare_csv(outputFileCSV, numberOfPlotsPerGenre, numberOfInputWords):
 
     wordsDictionary = PlotsWordDictionary.plots_word_dictionary(plotsString.split())
 
+    vocabulary_size = len(wordsDictionary)
+
     # print(wordsDictionary)
 
     # with open('file.txt', 'w') as file:
@@ -76,5 +78,7 @@ def prepare_csv(outputFileCSV, numberOfPlotsPerGenre, numberOfInputWords):
 
 
     standardizedMoviesPanda.to_csv(outputFileCSV, ',')
+
+    return vocabulary_size
 
 

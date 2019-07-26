@@ -4,20 +4,18 @@ import matplotlib.pyplot as plt
 import numpy as np
 import sklearn
 
+
 # Includes
 from tensorflow import keras
 from Preprocessing import Preprocessing, PandasProcessing
+import SettingsManager
 
-
-createCSV = False
-outputFileCSV = "standardized.csv"
-numberOfPlotsPerGenre = 400
-numberOfInputWords = 200
-# vocabulary_size = len(wordsDictionary)
-vocabulary_size = 51803 #44994 #41480 #37649  # pomocniczo zeby nie puszczac calosci
+# Read settings
+createCSV, outputFileCSV, numberOfPlotsPerGenre, numberOfInputWords, vocabulary_size = SettingsManager.load_settings()
 
 if createCSV == True:
-    Preprocessing.prepare_csv(outputFileCSV, numberOfPlotsPerGenre, numberOfInputWords)
+    vocabulary_size = Preprocessing.prepare_csv(outputFileCSV, numberOfPlotsPerGenre, numberOfInputWords)
+    SettingsManager.change_setting("vocabulary_size", vocabulary_size)
 
 standardizedData = pd.read_csv('standardized.csv', ',')
  # TESTY
@@ -110,22 +108,3 @@ plt.ylabel('Loss/Accuracy')
 plt.legend()
 
 plt.show()
-
-
-#
-#
-# # with open('file.txt', 'w') as file:
-# #     file.write(json.dumps(wordsDictionary))  # use `json.loads` to do the reverse
-#
-# # text_file = open("Output.txt", "w")
-# # text_file.write(wordsDictionary)
-# # text_file.close()
-#
-# #test = movies[['Title', 'PlotCorrected', 'GenreCorrected']]
-# #test.to_csv('test.csv', ',')
-#
-# # Uncomment to Naive Bayes Classification!
-# # NaiveBayesClassification.naive_bayes_classification(movies)
-#
-# # plt = PlotLearning.plot_learning_curve(estimator=multinomialNB, title="Test",X=x_test, y=y_test.crime, cv=5)
-# # plt.show()
