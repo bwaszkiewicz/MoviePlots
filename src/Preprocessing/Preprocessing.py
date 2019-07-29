@@ -42,7 +42,7 @@ def prepare_csv(outputFileCSV, numberOfPlotsPerGenre, numberOfInputWords):
 
     if shuffledRawProcessedMoviesPanda is None:
         print("Too large count")
-        sys.exit()
+        exit(0)
 
     print(shuffledRawProcessedMoviesPanda)
 

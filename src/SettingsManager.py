@@ -9,7 +9,10 @@ def load_settings():
                          "numberOfPlotsPerGenre": '400',
                          "numberOfInputWords": '200',
                          "vocabulary_size": '0',
-                         "experimentNumber": '1'
+                         "epochsNumber": '5',
+                         "historyBatchSize": '25',
+                         "resultsBatchSize": '50',
+                         "learningFactor": '0.7'
                          }
         with open('settings.txt', 'w') as settings_file:
             settings_file.write(json.dumps(settings_data))
@@ -20,16 +23,22 @@ def load_settings():
         settings_file.close()
         data = json.loads(json_settings)
 
-
-    create_csv = bool(data["createCSV"])
+    create_csv = str2bool(data["createCSV"])
     output_file_csv = data["outputFileCSV"]
     number_of_plots_per_genre = int(data["numberOfPlotsPerGenre"])
     number_of_input_words = int(data["numberOfInputWords"])
     vocabulary_size = int(data["vocabulary_size"])
-    experiment_number = data["experimentNumber"]
+    epochs_number = int(data["epochsNumber"])
+    history_batch_size = int(data["historyBatchSize"])
+    results_batch_size = int(data["resultsBatchSize"])
+    learning_factor = float(data["learningFactor"])
 
-    return create_csv, output_file_csv, number_of_plots_per_genre, number_of_input_words, vocabulary_size
+    return create_csv, output_file_csv, number_of_plots_per_genre, number_of_input_words, vocabulary_size, epochs_number, history_batch_size, results_batch_size, learning_factor
 
+
+
+def str2bool(v):
+  return v.lower() in ("yes", "true", "t", "1")
 
 def get_settings():
     with open('settings.txt', 'r') as settings_file:

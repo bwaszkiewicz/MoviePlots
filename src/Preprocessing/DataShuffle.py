@@ -3,7 +3,6 @@ import random
 
 def cut_movies(data, count):
     print("Shuffle init")
-    # genres_count_dictionary = count_genres(data)
     genres_array = ["thriller", "science_fiction", "romance", "musical", "horror", "drama", "crime", "comedy", "animation", "adventure", "action"]
     shuffled_data = pd.DataFrame(columns=['PlotCorrected', 'GenreCorrected'])
     genres_seperate_dictionary = seperate_genres(data)

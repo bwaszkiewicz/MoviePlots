@@ -11,20 +11,18 @@ from Preprocessing import Preprocessing, PandasProcessing
 import SettingsManager
 
 # Read settings
-createCSV, outputFileCSV, numberOfPlotsPerGenre, numberOfInputWords, vocabulary_size = SettingsManager.load_settings()
+createCSV, outputFileCSV, numberOfPlotsPerGenre, numberOfInputWords, vocabulary_size, epochsNumber, historyBatchSize, \
+resultsBatchSize, learningFactor = SettingsManager.load_settings()
 
 if createCSV == True:
     vocabulary_size = Preprocessing.prepare_csv(outputFileCSV, numberOfPlotsPerGenre, numberOfInputWords)
     SettingsManager.change_setting("vocabulary_size", vocabulary_size)
 
-standardizedData = pd.read_csv('standardized.csv', ',')
+standardizedData = pd.read_csv(outputFileCSV, ',')
  # TESTY
 print("Wynik testu normalizacji: ")
 print(PandasProcessing.normalization_test(standardizedData))
 print("(True - dane poprawne; False - dane nie poprawne")
-
-
-# standardizedDataSize = len(standardizedData)
 
 # -- preparing data for the model
 
@@ -35,6 +33,8 @@ for i, row in standardizedData.iterrows():
 
 x_data = standardizedData.PlotCorrected
 
+x_dataSize = len(x_data)
+
 index = 0
 for x in x_data:
     index = 0
@@ -42,17 +42,17 @@ for x in x_data:
         x[index] = float(z)
         index += 1
 
-x_train = x_data[:3000]
-y_train = standardizedData.GenreCorrected[:3000]
-x_test = x_data[3000:]
-y_test = standardizedData.GenreCorrected[3000:]
+x_train = x_data[:int(x_dataSize*learningFactor)]
+y_train = standardizedData.GenreCorrected[:int(x_dataSize*learningFactor)]
+x_test = x_data[int(x_dataSize*learningFactor):]
+y_test = standardizedData.GenreCorrected[int(x_dataSize*learningFactor):]
 
 index=0
 for y in y_train:
     y_train[index] = float(y)
     index += 1
 
-index=3000
+index=int(x_dataSize*learningFactor)
 for y in y_test:
     y_test[index] = float(y)
     index += 1
@@ -81,9 +81,9 @@ model.summary()
 
 model.compile(optimizer='adam', loss = 'sparse_categorical_crossentropy', metrics=['acc'])
 
-history = model.fit(x_train, y_train, epochs=5, batch_size=25)
+history = model.fit(x_train, y_train, epochs=epochsNumber, batch_size=historyBatchSize)
 
-results = model.evaluate(x_test, y_test, batch_size=50)
+results = model.evaluate(x_test, y_test, batch_size=resultsBatchSize)
 
 # -- printing results
 print(results)
