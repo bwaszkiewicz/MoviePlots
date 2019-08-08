@@ -56,9 +56,6 @@ def plot_normalization(data, words_dictionary):
     return data
 
 def plot_postnormalization_cleaning(data):
-    # regex = r"[a-zA-Z]+"
-    # data['PlotCorrected'] = re.sub("[a-zA-Z]+", "", data['PlotCorrected'].str)
-    # str = re.sub("[a-zA-Z]+", "", str)
     data['PlotCorrected'] = data['PlotCorrected'].str.replace(r'[a-zA-Z]+', '')
     return data
 

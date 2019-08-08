@@ -15,7 +15,7 @@ def cut_movies(data, count):
     for genre in genres_array:
         draw_lots_array = draw_numbers(len(genres_seperate_dictionary[genre].GenreCorrected),count)
         for i in range(count):
-                shuffled_data = shuffled_data.append(genres_seperate_dictionary[genre].loc[draw_lots_array[i], :], ignore_index=True) # TODO przerobic
+                shuffled_data = shuffled_data.append(genres_seperate_dictionary[genre].loc[draw_lots_array[i], :], ignore_index=True)
 
     return shuffled_data
 
